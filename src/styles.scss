@@ -1,0 +1,16 @@
+
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+mat-toolbar {
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+  }
+  
+  mat-toolbar button {
+    margin-right: 10px;
+  }
+  
