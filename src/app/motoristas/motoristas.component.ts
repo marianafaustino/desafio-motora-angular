@@ -1,25 +1,27 @@
 import { Component, OnInit } from '@angular/core';
+import { MatTableDataSource } from '@angular/material/table';
 import { MotoristasService } from '../motoristas.service';
 
 @Component({
   selector: 'app-motoristas',
   standalone: false,
   templateUrl: './motoristas.component.html',
-  styleUrl: './motoristas.component.css'
+  styleUrls: ['./motoristas.component.css']
 })
 export class MotoristasComponent implements OnInit {
 
-  motoristas: any[] = [];
+  displayedColumns: string[] = ['nome', 'status', 'acao']; 
+  dataSource = new MatTableDataSource<any>(); 
 
   constructor(private motoristasService: MotoristasService) { }
 
   ngOnInit(): void {
     this.motoristasService.getMotorista().subscribe(
       (data) => {
-        this.motoristas = data;
+        this.dataSource.data = data; 
       },
       (error) => {
-        console.error('Erro ao buscar motoristas:', error);
+        console.error('Erro ao buscar motorista:', error);
       }
     );
   }
