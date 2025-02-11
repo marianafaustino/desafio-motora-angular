@@ -1,8 +1,8 @@
-import { StatusPipe } from './status.pipe';
+import { TradutorPipe } from './tradutor.pipe';
 
 describe('StatusPipe', () => {
   it('create an instance', () => {
-    const pipe = new StatusPipe();
+    const pipe = new TradutorPipe();
     expect(pipe).toBeTruthy();
   });
 });
