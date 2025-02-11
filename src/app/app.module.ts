@@ -7,6 +7,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { AppRoutingModule } from './app-routing.module';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { MotoristasModule } from './motoristas/motoristas.module';
+import { VeiculosModule } from './veiculos/veiculos.module';
+import { ViagensModule } from './viagens/viagens.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -17,9 +21,14 @@ import { AppRoutingModule } from './app-routing.module';
     MatButtonModule,
     MatMenuModule,
     MatIconModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MotoristasModule,
+    VeiculosModule,
+    ViagensModule
   ],
-  providers: [],
+  providers: [
+    provideHttpClient(withInterceptorsFromDi())
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
