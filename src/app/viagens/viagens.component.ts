@@ -45,8 +45,9 @@ export class ViagensComponent implements OnInit {
         
         this.dataSource.data = viagens.map((viagem: any) => ({
           ...viagem,
-          veiculo: this.veiculosMap.get(viagem.veiculoId) || '-' 
+          veiculo: this.veiculosMap.get(viagem.vehicleId) || '-' 
         }));
+        console.log(this.dataSource.data)
       },
       (error) => console.error('Erro ao buscar viagens:', error)
     );
