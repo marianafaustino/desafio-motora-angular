@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { ViagensRoutingModule } from './viagens-routing.module';
 import { ViagensComponent } from './viagens.component';
+import { ViagensService } from '../viagens.service';
 
 
 @NgModule({
@@ -12,6 +13,12 @@ import { ViagensComponent } from './viagens.component';
   imports: [
     CommonModule,
     ViagensRoutingModule
+  ],
+  providers: [
+    ViagensService
+  ],
+  exports: [
+    ViagensComponent
   ]
 })
 export class ViagensModule { }

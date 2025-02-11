@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ViagensService } from '../viagens.service';
 
 @Component({
   selector: 'app-viagens',
@@ -6,6 +7,20 @@ import { Component } from '@angular/core';
   templateUrl: './viagens.component.html',
   styleUrl: './viagens.component.css'
 })
-export class ViagensComponent {
+export class ViagensComponent implements OnInit {
 
+  viagens: any[] = [];
+
+  constructor(private viagensService : ViagensService) { }
+
+  ngOnInit(): void {
+    this.viagensService.getViagens().subscribe(
+      (data) => {
+        this.viagens = data;
+      },
+      (error) => {
+        console.error('Erro ao buscar viagem:', error);
+      }
+    );
+  }
 }
