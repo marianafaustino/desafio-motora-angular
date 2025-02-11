@@ -6,7 +6,6 @@ import { MotoristasComponent } from './motoristas.component';
 import { MotoristasService } from '../motoristas.service';
 import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
-import { StatusPipe } from '../pipes/status.pipe';
 import { SharedModule } from '../shared/shared.module';
 
 

@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { StatusPipe } from '../pipes/status.pipe';
+import { TradutorPipe } from '../pipes/tradutor.pipe';
 
 @NgModule({
-  declarations: [StatusPipe], 
+  declarations: [TradutorPipe], 
   imports: [CommonModule],
-  exports: [StatusPipe] 
+  exports: [TradutorPipe] 
 })
 export class SharedModule { }
 
