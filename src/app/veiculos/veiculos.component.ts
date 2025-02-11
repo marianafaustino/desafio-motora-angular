@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { VeiculosService } from '../veiculos.service';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-veiculos',
@@ -9,14 +10,15 @@ import { VeiculosService } from '../veiculos.service';
 })
 export class VeiculosComponent implements OnInit {
 
-  veiculos: any[] = [];
+  displayedColumns: string[] = ['tipo', 'placa', 'status', 'acao'];
+  dataSource = new MatTableDataSource<any>();
 
-  constructor(private veiculosService : VeiculosService) { }
+  constructor(private veiculosService: VeiculosService) { }
 
   ngOnInit(): void {
     this.veiculosService.getVeiculo().subscribe(
       (data) => {
-        this.veiculos = data;
+        this.dataSource.data = data;
       },
       (error) => {
         console.error('Erro ao buscar veículo:', error);
