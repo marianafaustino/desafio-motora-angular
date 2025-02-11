@@ -4,6 +4,9 @@ import { CommonModule } from '@angular/common';
 import { ViagensRoutingModule } from './viagens-routing.module';
 import { ViagensComponent } from './viagens.component';
 import { ViagensService } from '../viagens.service';
+import { MatTableModule } from '@angular/material/table';
+import { MatIconModule } from '@angular/material/icon';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -12,7 +15,10 @@ import { ViagensService } from '../viagens.service';
   ],
   imports: [
     CommonModule,
-    ViagensRoutingModule
+    ViagensRoutingModule,
+    MatTableModule,
+    MatIconModule,
+    SharedModule
   ],
   providers: [
     ViagensService

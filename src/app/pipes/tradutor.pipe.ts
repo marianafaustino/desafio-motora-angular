@@ -12,7 +12,9 @@ export class TradutorPipe implements PipeTransform {
         'idle': 'PARADO',
         'driving': 'DIRIGINDO',
         'stopped': 'PARADO',
-        'moving': 'EM MOVIMENTO'
+        'moving': 'EM MOVIMENTO',
+        'finished': 'FINALIZADA',
+        'ongoing': 'EM ANDAMENTO'
       },
       vehicle: {
         'bus': 'Ônibus',

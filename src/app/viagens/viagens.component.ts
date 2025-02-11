@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ViagensService } from '../viagens.service';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-viagens',
@@ -9,18 +10,20 @@ import { ViagensService } from '../viagens.service';
 })
 export class ViagensComponent implements OnInit {
 
-  viagens: any[] = [];
+  displayedColumns: string[] = ['motorista', 'veículo', 'status', 'acao'];
+  dataSource = new MatTableDataSource<any>();
 
-  constructor(private viagensService : ViagensService) { }
+  constructor(private viagensService: ViagensService) { }
 
   ngOnInit(): void {
     this.viagensService.getViagens().subscribe(
       (data) => {
-        this.viagens = data;
+        this.dataSource.data = data;
       },
       (error) => {
-        console.error('Erro ao buscar viagem:', error);
+        console.error('Erro ao buscar viagens:', error);
       }
     );
   }
+
 }
