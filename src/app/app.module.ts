@@ -11,6 +11,7 @@ import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http'
 import { MotoristasModule } from './motoristas/motoristas.module';
 import { VeiculosModule } from './veiculos/veiculos.module';
 import { ViagensModule } from './viagens/viagens.module';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -24,7 +25,8 @@ import { ViagensModule } from './viagens/viagens.module';
     AppRoutingModule,
     MotoristasModule,
     VeiculosModule,
-    ViagensModule
+    ViagensModule,
+    SharedModule
   ],
   providers: [
     provideHttpClient(withInterceptorsFromDi())

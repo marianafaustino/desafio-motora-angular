@@ -1,12 +1,10 @@
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 full-width-table">
 
-  <!-- Nome Column -->
   <ng-container matColumnDef="nome">
     <th mat-header-cell *matHeaderCellDef> Nome </th>
     <td mat-cell *matCellDef="let element"> {{ element.name }} </td>
   </ng-container>
 
-  <!-- Status Column -->
   <ng-container matColumnDef="status">
     <th mat-header-cell *matHeaderCellDef> Status </th>
     <td mat-cell *matCellDef="let element"> 
@@ -14,7 +12,6 @@
     </td>
   </ng-container>
 
-  <!-- Ação Column (Ícone de seta) -->
   <ng-container matColumnDef="acao">
     <th mat-header-cell *matHeaderCellDef> </th>
     <td mat-cell *matCellDef="let element" class="icon-cell">
@@ -22,7 +19,6 @@
     </td>
   </ng-container>
 
-  <!-- Cabeçalhos e Linhas -->
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 

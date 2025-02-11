@@ -7,25 +7,25 @@ import { MotoristasService } from '../motoristas.service';
 import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
 import { StatusPipe } from '../pipes/status.pipe';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
   declarations: [
-    MotoristasComponent,
-    StatusPipe
+    MotoristasComponent
   ],
   imports: [
     CommonModule,
     MotoristasRoutingModule,
     MatTableModule,
-    MatIconModule
+    MatIconModule,
+    SharedModule
   ],
   providers: [
     MotoristasService
   ],
   exports: [
-    MotoristasComponent,
-    StatusPipe
+    MotoristasComponent
   ]
 })
 export class MotoristasModule { }
