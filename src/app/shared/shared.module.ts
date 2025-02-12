@@ -10,6 +10,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatListModule } from '@angular/material/list';
 import { MatButtonModule } from '@angular/material/button';
 import { FiltroMenuComponent } from '../filtro-menu/filtro-menu.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [TradutorPipe, SearchBarComponent, FiltroMenuComponent], 
@@ -21,7 +22,8 @@ import { FiltroMenuComponent } from '../filtro-menu/filtro-menu.component';
     MatIconModule,
     MatMenuModule,
     MatListModule,
-    MatButtonModule
+    MatButtonModule,
+    MatDialogModule
   ],
   exports: [
     TradutorPipe, 
@@ -30,7 +32,8 @@ import { FiltroMenuComponent } from '../filtro-menu/filtro-menu.component';
     MatIconModule,
     MatListModule,
     MatButtonModule,
-    FiltroMenuComponent
+    FiltroMenuComponent,
+    MatDialogModule
   ] 
 })
 export class SharedModule { }

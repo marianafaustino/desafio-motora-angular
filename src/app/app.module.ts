@@ -14,10 +14,15 @@ import { ViagensModule } from './viagens/viagens.module';
 import { SharedModule } from './shared/shared.module';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatDividerModule } from '@angular/material/divider';
+import { NovoItemDialogComponent } from './novo-item-dialog/novo-item-dialog.component';
+import { MotoristaFormComponent } from './forms/motorista-form/motorista-form.component';
+import { ViagemFormComponent } from './forms/viagem-form/viagem-form.component';
+import { VeiculoFormComponent } from './forms/veiculo-form/veiculo-form.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, NovoItemDialogComponent, MotoristaFormComponent, ViagemFormComponent, VeiculoFormComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -32,12 +37,17 @@ import { FormsModule } from '@angular/forms';
     SharedModule,
     MatFormFieldModule,
     MatInputModule,
-    FormsModule
+    FormsModule,
+    MatDividerModule,
+    ReactiveFormsModule
   ],
   providers: [
     provideHttpClient(withInterceptorsFromDi())
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports: [
+    MotoristaFormComponent, ViagemFormComponent, VeiculoFormComponent
+  ]
 })
 export class AppModule { }
 

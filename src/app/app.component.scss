@@ -1,4 +1,23 @@
 .content-container {
     margin: 20px;
 }
+
+.custom-divider {
+    width: 320px;
+    margin: auto; /* Adiciona espaço acima e abaixo da linha */
+    border-width: 2px; /* Ajusta a espessura da linha */
+    border-color: rgba(0, 0, 0, 0.12); /* Cor do divisor (Material padrão) */
+  }
+  
+  .add-button-container {
+    display: flex;
+    justify-content: center; /* Centraliza o botão */
+    margin-top: 12px; /* Espaço após o divisor */
+  }
+  
+  button.mat-fab {
+    width: 56px;
+    height: 56px;
+    font-size: 24px;
+  }
   
