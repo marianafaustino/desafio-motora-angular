@@ -12,6 +12,9 @@ import { MotoristasModule } from './motoristas/motoristas.module';
 import { VeiculosModule } from './veiculos/veiculos.module';
 import { ViagensModule } from './viagens/viagens.module';
 import { SharedModule } from './shared/shared.module';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent],
@@ -26,7 +29,10 @@ import { SharedModule } from './shared/shared.module';
     MotoristasModule,
     VeiculosModule,
     ViagensModule,
-    SharedModule
+    SharedModule,
+    MatFormFieldModule,
+    MatInputModule,
+    FormsModule
   ],
   providers: [
     provideHttpClient(withInterceptorsFromDi())

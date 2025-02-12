@@ -1,0 +1,53 @@
+mat-form-field{
+  width: 360px;
+  height: 56px;
+  margin-bottom: 20px;
+}
+
+
+::ng-deep .mdc-text-field--outlined {
+    --mdc-outlined-text-field-container-shape: 28px !important; /* Mantém bordas arredondadas */
+    --mdc-outlined-text-field-outline-width: 0px !important; /* Remove a borda */
+    --mdc-outlined-text-field-outline-color: transparent !important; /* Remove o contorno */
+    background-color: #C5C7C8 !important; /* Define a cor de fundo */
+    border-radius: 28px !important; /* Mantém o border-radius */
+  }
+  
+  /* Aplica o background no wrapper externo para cobrir toda a área */
+  ::ng-deep .mat-mdc-text-field-wrapper {
+    background-color: #C5C7C8 !important;
+    border-radius: 28px !important; /* Mantém a borda arredondada */
+  }
+  
+  /* Aplica a cor de fundo ao próprio input */
+  ::ng-deep .mat-mdc-input-element {
+    background-color: transparent !important; /* Mantém a transparência interna do input */
+    border-radius: 28px !important;
+  }
+  
+  
+  /* Remove qualquer sombra ao focar */
+  ::ng-deep .mdc-text-field--outlined.mdc-text-field--focused {
+    box-shadow: none !important;
+    outline: none !important;
+  }
+  
+  /* Remove o overlay que o Material aplica ao focar */
+  ::ng-deep .mat-mdc-form-field-focus-overlay {
+    display: none !important;
+  }
+  
+  /* Remove o efeito de focus do input */
+  ::ng-deep .mat-mdc-input-element {
+    outline: none !important;
+    box-shadow: none !important;
+    border: none !important;
+  }
+  
+  /* Remove qualquer contorno ou linha residual */
+  ::ng-deep .mat-mdc-form-field-outline,
+  ::ng-deep .mat-mdc-form-field-outline-thick {
+    display: none !important;
+    border: none !important;
+  }
+  

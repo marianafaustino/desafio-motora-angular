@@ -63,4 +63,9 @@ export class ViagensComponent implements OnInit {
       (error) => console.error('Erro ao buscar viagens:', error)
     );
   }
+
+  applyFilter(filterValue: string): void {
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+  
 }
