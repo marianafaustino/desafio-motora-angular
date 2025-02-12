@@ -16,16 +16,13 @@ export class VeiculosComponent implements OnInit, OnDestroy {
 
   private novoItemSubscription!: Subscription;
 
-  // ✅ Filtros armazenados
   private searchFilter: string = ''; 
   private statusFilter: string = ''; 
   private tipoFilter: string = '';
 
-  // ✅ Opções para os filtros
   statusOptions = [
-    { label: 'Disponível', value: 'available' },
-    { label: 'Em Uso', value: 'in_use' },
-    { label: 'Manutenção', value: 'maintenance' }
+    { label: 'Parado', value: 'stopped' },
+    { label: 'Em movimento', value: 'moving' }
   ];
 
   tipoOptions = [
@@ -51,7 +48,6 @@ export class VeiculosComponent implements OnInit, OnDestroy {
       (data) => {
         this.dataSource = new MatTableDataSource(data);
 
-        // ✅ Configura a lógica do filtro combinando busca, status e tipo
         this.dataSource.filterPredicate = (data: any, filter: string) => {
           const filterObj = JSON.parse(filter);
           const placa = data.plate.toLowerCase();
@@ -71,25 +67,21 @@ export class VeiculosComponent implements OnInit, OnDestroy {
     );
   }
 
-  // ✅ Aplica o filtro de busca (placa)
   applySearch(filterValue: string): void {
     this.searchFilter = filterValue.trim().toLowerCase();
     this.applyFilters();
   }
 
-  // ✅ Aplica o filtro de status
   applyStatusFilter(filterValue: string): void {
     this.statusFilter = filterValue;
     this.applyFilters();
   }
 
-  // ✅ Aplica o filtro de tipo
   applyTipoFilter(filterValue: string): void {
     this.tipoFilter = filterValue;
     this.applyFilters();
   }
 
-  // ✅ Método que aplica todos os filtros simultaneamente
   private applyFilters(): void {
     const filterObj = { 
       searchFilter: this.searchFilter, 

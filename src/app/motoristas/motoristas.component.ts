@@ -18,7 +18,6 @@ export class MotoristasComponent implements OnInit, OnDestroy {
   private searchFilter: string = ''; 
   private statusFilter: string = ''; 
 
-  // ✅ Opções para o filtro de status
   statusOptions = [
     { label: 'Parado', value: 'idle' },
     { label: 'Dirigindo', value: 'driving' }
@@ -41,7 +40,6 @@ export class MotoristasComponent implements OnInit, OnDestroy {
       (data) => {
         this.dataSource = new MatTableDataSource(data);
 
-        // ✅ Configura a lógica do filtro combinando busca e status
         this.dataSource.filterPredicate = (data: any, filter: string) => {
           const filterObj = JSON.parse(filter);
           const nome = data.name.toLowerCase();
