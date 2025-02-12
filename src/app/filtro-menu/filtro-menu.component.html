@@ -1,15 +1,16 @@
 <!-- Botão que abre o menu -->
 <button mat-button [matMenuTriggerFor]="menu">
-     <span>Status</span>
-     <mat-icon>arrow_right</mat-icon>
+  <span>{{ titulo }}</span>
+  <mat-icon>arrow_right</mat-icon>
 </button>
-  
-  <!-- Menu de Filtros -->
-  <mat-menu #menu="matMenu">
-    <mat-selection-list dense (selectionChange)="applyFilter($event)">
-      <mat-list-option *ngFor="let option of filterOptions" [value]="option.value">
-        {{ option.label }}
-      </mat-list-option>
-    </mat-selection-list>
-  </mat-menu>
+
+<!-- Menu de Filtros -->
+<mat-menu #menu="matMenu">
+  <mat-selection-list dense (selectionChange)="applyFilter($event)">
+    <mat-list-option *ngFor="let option of opcoes" [value]="option.value">
+      {{ option.label }}
+    </mat-list-option>
+  </mat-selection-list>
+</mat-menu>
+
   

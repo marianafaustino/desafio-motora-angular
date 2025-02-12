@@ -1,9 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { MotoristasService } from '../motoristas.service';
-import { MatDialog } from '@angular/material/dialog';
 import { AppComponent } from '../app.component';
-import { Subscription } from 'rxjs'; 
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-motoristas',
@@ -11,23 +10,27 @@ import { Subscription } from 'rxjs';
   templateUrl: './motoristas.component.html',
   styleUrls: ['./motoristas.component.css']
 })
-export class MotoristasComponent implements OnInit {
+export class MotoristasComponent implements OnInit, OnDestroy {
   displayedColumns: string[] = ['nome', 'status', 'acao']; 
-  dataSource = new MatTableDataSource<any>(); 
+  dataSource = new MatTableDataSource<any>();
 
+  private novoItemSubscription!: Subscription;
   private searchFilter: string = ''; 
   private statusFilter: string = ''; 
-  private novoItemSubscription!: Subscription; 
+
+  // ✅ Opções para o filtro de status
+  statusOptions = [
+    { label: 'Parado', value: 'idle' },
+    { label: 'Dirigindo', value: 'driving' }
+  ];
 
   constructor(
     private motoristasService: MotoristasService,
-    private dialog: MatDialog,
     private appComponent: AppComponent
   ) {}
 
   ngOnInit(): void {
     this.carregarMotoristas();
-
     this.novoItemSubscription = this.appComponent.novoItemAdicionado.subscribe(() => {
       this.carregarMotoristas();
     });
@@ -37,6 +40,8 @@ export class MotoristasComponent implements OnInit {
     this.motoristasService.getMotorista().subscribe(
       (data) => {
         this.dataSource = new MatTableDataSource(data);
+
+        // ✅ Configura a lógica do filtro combinando busca e status
         this.dataSource.filterPredicate = (data: any, filter: string) => {
           const filterObj = JSON.parse(filter);
           const nome = data.name.toLowerCase();
@@ -64,7 +69,7 @@ export class MotoristasComponent implements OnInit {
     this.applyFilters();
   }
 
-  applyFilter(filterValue: string): void {
+  applyStatusFilter(filterValue: string): void {
     this.statusFilter = filterValue;
     this.applyFilters();
   }

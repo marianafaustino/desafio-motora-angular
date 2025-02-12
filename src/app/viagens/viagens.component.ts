@@ -11,7 +11,6 @@ import { MotoristasService } from '../motoristas.service';
   styleUrl: './viagens.component.css'
 })
 export class ViagensComponent implements OnInit {
-
   displayedColumns: string[] = ['motorista', 'veiculo', 'status', 'acao'];
   dataSource = new MatTableDataSource<any>();
 
@@ -20,6 +19,12 @@ export class ViagensComponent implements OnInit {
 
   private searchFilter: string = ''; 
   private statusFilter: string = ''; 
+
+  // ✅ Opções para o filtro de status
+  statusOptions = [
+    { label: 'Finalizada', value: 'finished' },
+    { label: 'Em Andamento', value: 'ongoing' }
+  ];
 
   constructor(
     private viagensService: ViagensService,
@@ -63,6 +68,7 @@ export class ViagensComponent implements OnInit {
           motorista: this.motoristasMap.get(viagem.driverId) || 'Não identificado' 
         })));
 
+        // ✅ Configura a lógica do filtro combinando busca e status
         this.dataSource.filterPredicate = (data: any, filter: string) => {
           const filterObj = JSON.parse(filter);
           const nomeMotorista = data.motorista.toLowerCase();
@@ -78,16 +84,19 @@ export class ViagensComponent implements OnInit {
     );
   }
 
+  // ✅ Aplica o filtro de busca (motorista)
   applySearch(filterValue: string): void {
     this.searchFilter = filterValue.trim().toLowerCase();
     this.applyFilters();
   }
 
-  applyFilter(filterValue: string): void {
+  // ✅ Aplica o filtro de status
+  applyStatusFilter(filterValue: string): void {
     this.statusFilter = filterValue;
     this.applyFilters();
   }
 
+  // ✅ Aplica os filtros de busca e status simultaneamente
   private applyFilters(): void {
     const filterObj = { searchFilter: this.searchFilter, statusFilter: this.statusFilter };
     this.dataSource.filter = JSON.stringify(filterObj);
