@@ -13,7 +13,7 @@ export class VeiculoFormComponent {
   veiculoForm: FormGroup;
   @Output() veiculoAdicionado = new EventEmitter<void>();
 
-  // ✅ Lista de opções para o select (exibição em português, valores em inglês)
+  
   tipoVeiculoOptions = [
     { label: 'Ônibus', value: 'bus' },
     { label: 'Caminhão', value: 'truck' },
@@ -26,7 +26,7 @@ export class VeiculoFormComponent {
     public dialogRef: MatDialogRef<VeiculoFormComponent>
   ) {
     this.veiculoForm = this.fb.group({
-      type: ['', Validators.required], // ✅ O backend receberá os valores em inglês
+      type: ['', Validators.required], 
       plate: ['', Validators.required]
     });
   }
@@ -36,8 +36,8 @@ export class VeiculoFormComponent {
       this.veiculoService.addVeiculo(this.veiculoForm.value).subscribe(
         () => {
           console.log('Veículo cadastrado com sucesso!');
-          this.veiculoAdicionado.emit(); // ✅ Emite o evento para atualizar a listagem
-          this.dialogRef.close(true); // ✅ Fecha a modal e informa sucesso
+          this.veiculoAdicionado.emit();
+          this.dialogRef.close(true); 
         },
         (error) => {
           console.error('Erro ao cadastrar veículo', error);

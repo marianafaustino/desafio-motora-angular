@@ -13,7 +13,8 @@ export class FiltroMenuComponent {
     { label: 'Parado', value: 'idle' },
     { label: 'Dirigindo', value: 'driving' },
     { label: 'Finalizada', value: 'finished' },
-    { label: 'Em andamento', value: 'ongoing' }
+    { label: 'Em andamento', value: 'ongoing' },
+    { label: 'Em movimento', value: 'moving'}
   ];
 
   applyFilter(event: any) {
