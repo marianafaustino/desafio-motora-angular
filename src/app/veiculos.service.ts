@@ -14,4 +14,8 @@ export class VeiculosService {
     getVeiculo(): Observable<any> {
       return this.http.get<any>(this.apiUrl);
     }
+
+    addVeiculo(veiculo: any): Observable<any> {
+      return this.http.post<any>(this.apiUrl, veiculo);
+    }
 }

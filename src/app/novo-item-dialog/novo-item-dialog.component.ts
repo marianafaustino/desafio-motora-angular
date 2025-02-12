@@ -3,7 +3,6 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { MotoristaFormComponent } from '../forms/motorista-form/motorista-form.component';
 import { ViagemFormComponent } from '../forms/viagem-form/viagem-form.component';
 import { VeiculoFormComponent } from '../forms/veiculo-form/veiculo-form.component';
-
 @Component({
   selector: 'app-novo-item-dialog',
   standalone: false,
@@ -45,6 +44,11 @@ export class NovoItemDialogComponent implements AfterViewInit {
 
       if ('motoristaAdicionado' in componentRef.instance) {
         (componentRef.instance as MotoristaFormComponent).motoristaAdicionado.subscribe(() => {
+          this.dialogRef.close(true);
+        });
+      }
+      if ('veiculoAdicionado' in componentRef.instance) {
+        (componentRef.instance as VeiculoFormComponent).veiculoAdicionado.subscribe(() => {
           this.dialogRef.close(true);
         });
       }

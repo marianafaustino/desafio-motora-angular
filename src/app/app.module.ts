@@ -20,6 +20,8 @@ import { NovoItemDialogComponent } from './novo-item-dialog/novo-item-dialog.com
 import { MotoristaFormComponent } from './forms/motorista-form/motorista-form.component';
 import { ViagemFormComponent } from './forms/viagem-form/viagem-form.component';
 import { VeiculoFormComponent } from './forms/veiculo-form/veiculo-form.component';
+import { MatSelectModule } from '@angular/material/select';
+import { MatOptionModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [AppComponent, NovoItemDialogComponent, MotoristaFormComponent, ViagemFormComponent, VeiculoFormComponent],
@@ -39,7 +41,9 @@ import { VeiculoFormComponent } from './forms/veiculo-form/veiculo-form.componen
     MatInputModule,
     FormsModule,
     MatDividerModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatSelectModule,
+    MatOptionModule
   ],
   providers: [
     provideHttpClient(withInterceptorsFromDi())
