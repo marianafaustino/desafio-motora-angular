@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { MotoristasService } from '../motoristas.service';
+import { MatDialog } from '@angular/material/dialog';
+import { AppComponent } from '../app.component';
+import { Subscription } from 'rxjs'; 
 
 @Component({
   selector: 'app-motoristas',
@@ -9,21 +12,31 @@ import { MotoristasService } from '../motoristas.service';
   styleUrls: ['./motoristas.component.css']
 })
 export class MotoristasComponent implements OnInit {
-
   displayedColumns: string[] = ['nome', 'status', 'acao']; 
   dataSource = new MatTableDataSource<any>(); 
 
   private searchFilter: string = ''; 
   private statusFilter: string = ''; 
+  private novoItemSubscription!: Subscription; 
 
-  constructor(private motoristasService: MotoristasService) { }
+  constructor(
+    private motoristasService: MotoristasService,
+    private dialog: MatDialog,
+    private appComponent: AppComponent
+  ) {}
 
   ngOnInit(): void {
+    this.carregarMotoristas();
+
+    this.novoItemSubscription = this.appComponent.novoItemAdicionado.subscribe(() => {
+      this.carregarMotoristas();
+    });
+  }
+
+  private carregarMotoristas(): void {
     this.motoristasService.getMotorista().subscribe(
       (data) => {
         this.dataSource = new MatTableDataSource(data);
-
-        
         this.dataSource.filterPredicate = (data: any, filter: string) => {
           const filterObj = JSON.parse(filter);
           const nome = data.name.toLowerCase();
@@ -41,7 +54,7 @@ export class MotoristasComponent implements OnInit {
         };
       },
       (error) => {
-        console.error('Erro ao buscar motorista:', error);
+        console.error('Erro ao buscar motoristas:', error);
       }
     );
   }
@@ -59,5 +72,11 @@ export class MotoristasComponent implements OnInit {
   private applyFilters(): void {
     const filterObj = { searchFilter: this.searchFilter, statusFilter: this.statusFilter };
     this.dataSource.filter = JSON.stringify(filterObj);
+  }
+
+  ngOnDestroy(): void {
+    if (this.novoItemSubscription) {
+      this.novoItemSubscription.unsubscribe();
+    }
   }
 }

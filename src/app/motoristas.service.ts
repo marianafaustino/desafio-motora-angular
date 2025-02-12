@@ -14,4 +14,8 @@ export class MotoristasService {
   getMotorista(): Observable<any> {
     return this.http.get<any>(this.apiUrl);
   }
+
+  addMotorista(motorista: any): Observable<any> {
+    return this.http.post<any>(this.apiUrl, motorista);
+  }
 }
