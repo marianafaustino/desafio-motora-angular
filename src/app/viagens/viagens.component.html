@@ -1,4 +1,7 @@
-<app-search-bar (searchChange)="applyFilter($event)" placeholder="Digite a placa ou nome do motorista"></app-search-bar>
+<div class="search-filter-container">
+  <app-search-bar (searchChange)="applySearch($event)" placeholder="Digite a placa ou nome do motorista"></app-search-bar>
+  <app-filtro-menu (filterChange)="applyFilter($event)" ></app-filtro-menu>
+</div>
 
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 full-width-table">
 

@@ -15,8 +15,11 @@ export class ViagensComponent implements OnInit {
   displayedColumns: string[] = ['motorista', 'veiculo', 'status', 'acao'];
   dataSource = new MatTableDataSource<any>();
 
-  private veiculosMap = new Map<number, string>(); // Mapa (idVeiculo → placa)
-  private motoristasMap = new Map<number, string>(); // Mapa (idMotorista → nome)
+  private veiculosMap = new Map<number, string>(); 
+  private motoristasMap = new Map<number, string>(); 
+
+  private searchFilter: string = ''; 
+  private statusFilter: string = ''; 
 
   constructor(
     private viagensService: ViagensService,
@@ -54,18 +57,39 @@ export class ViagensComponent implements OnInit {
     this.viagensService.getViagens().subscribe(
       (viagens) => {
 
-        this.dataSource.data = viagens.map((viagem: any) => ({
+        this.dataSource = new MatTableDataSource(viagens.map((viagem: any) => ({
           ...viagem,
           veiculo: this.veiculosMap.get(viagem.vehicleId) || '-',
           motorista: this.motoristasMap.get(viagem.driverId) || 'Não identificado' 
-        }));
+        })));
+
+        this.dataSource.filterPredicate = (data: any, filter: string) => {
+          const filterObj = JSON.parse(filter);
+          const nomeMotorista = data.motorista.toLowerCase();
+          const statusViagem = data.status.toLowerCase();
+
+          const matchesSearch = nomeMotorista.includes(filterObj.searchFilter.toLowerCase());
+          const matchesStatus = filterObj.statusFilter ? statusViagem.includes(filterObj.statusFilter.toLowerCase()) : true;
+
+          return matchesSearch && matchesStatus;
+        };
       },
       (error) => console.error('Erro ao buscar viagens:', error)
     );
   }
 
-  applyFilter(filterValue: string): void {
-    this.dataSource.filter = filterValue.trim().toLowerCase();
+  applySearch(filterValue: string): void {
+    this.searchFilter = filterValue.trim().toLowerCase();
+    this.applyFilters();
   }
-  
+
+  applyFilter(filterValue: string): void {
+    this.statusFilter = filterValue;
+    this.applyFilters();
+  }
+
+  private applyFilters(): void {
+    const filterObj = { searchFilter: this.searchFilter, statusFilter: this.statusFilter };
+    this.dataSource.filter = JSON.stringify(filterObj);
+  }
 }
