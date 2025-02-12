@@ -25,4 +25,8 @@ export class MotoristasComponent implements OnInit {
       }
     );
   }
+
+  applyFilter(filterValue: string): void {
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
 }
