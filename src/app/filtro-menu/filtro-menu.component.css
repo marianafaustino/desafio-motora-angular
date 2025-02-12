@@ -1,14 +1,28 @@
 .mat-menu-panel {
-    min-width: 200px; /* Ajusta a largura mínima do menu */
+    min-width: 200px; 
+    height: 48px; 
+    font-size: 16px;
   }
+
+  .mat-mdc-button:not(:disabled) {
+    color: black !important;
+}
+
+.mat-mdc-button {
+    padding: 0 var(--mat-text-button-horizontal-padding, 12px);
+    height: var(--mdc-text-button-container-height, 40px);
+    font-family: 'Lato', sans-serif !important;
+    font-size: 16px !important;
+    font-weight: var(--mdc-text-button-label-text-weight, var(--mat-sys-label-large-weight));
+}
   
   .mat-selection-list {
     padding: 0;
   }
   
   .mat-list-option {
-    height: 32px; /* Define a altura reduzida para Density 2 */
-    font-size: 14px;
+    height: 32px; 
+    font-size: 16px;
   }
   
   .mat-list-option .mat-pseudo-checkbox {
