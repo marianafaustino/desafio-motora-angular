@@ -4,20 +4,39 @@
 
 .custom-divider {
     width: 320px;
-    margin: auto; /* Adiciona espaço acima e abaixo da linha */
-    border-width: 2px; /* Ajusta a espessura da linha */
-    border-color: rgba(0, 0, 0, 0.12); /* Cor do divisor (Material padrão) */
+    margin: auto; 
+    border-width: 2px; 
+    border-color: rgba(0, 0, 0, 0.12); 
   }
   
   .add-button-container {
     display: flex;
-    justify-content: center; /* Centraliza o botão */
-    margin-top: 12px; /* Espaço após o divisor */
+    justify-content: center; 
+    margin-top: 12px; 
+    position: relative; 
   }
   
-  button.mat-fab {
-    width: 56px;
-    height: 56px;
-    font-size: 24px;
+  .add-button {
+    --mdc-fab-container-shape: 50%; 
+    --mdc-fab-size: 56px; 
+    --mdc-fab-icon-size: 100%; 
+    padding: 0 !important;
+    width: 56px !important;
+    height: 56px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    position: absolute; 
   }
+  
+  .add-button mat-icon {
+    font-size: 24px !important; 
+    width: 24px !important;
+    height: 24px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  
   

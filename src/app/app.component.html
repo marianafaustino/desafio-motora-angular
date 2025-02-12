@@ -1,13 +1,11 @@
 <mat-toolbar class="header">
-  
-  <!-- Título no meio -->
+
   <a routerLink="/" >
     <img src="assets/logo.png" alt="Logo" width="100" />
   </a>
   
   <div class="spacer"></div>
-  
-  <!-- Botões da Navbar -->
+
   <button mat-button routerLink="/viagens">Viagens</button>
   <button mat-button routerLink="/motoristas">Motoristas</button>
   <button mat-button routerLink="/veiculos">Veículos</button>
@@ -19,7 +17,6 @@
   
 </mat-toolbar>
 
-<!-- Submenu de Opções -->
 <mat-menu #optionsMenu="matMenu">
   <button mat-menu-item>
     <mat-icon>settings</mat-icon> Configurações
@@ -38,10 +35,11 @@
 
 <mat-divider class="custom-divider"></mat-divider>
 <div class="add-button-container">
-  <button mat-fab color="primary" (click)="openDialog()">
-    <mat-icon>add_circle</mat-icon>
+  <button mat-fab color="primary" (click)="openDialog()" class="add-button">
+    <mat-icon>add</mat-icon>
   </button>
 </div>
+
 
 
 <mat-toolbar class="footer">
