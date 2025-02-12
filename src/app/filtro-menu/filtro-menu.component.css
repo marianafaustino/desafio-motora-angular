@@ -1,0 +1,18 @@
+.mat-menu-panel {
+    min-width: 200px; /* Ajusta a largura mínima do menu */
+  }
+  
+  .mat-selection-list {
+    padding: 0;
+  }
+  
+  .mat-list-option {
+    height: 32px; /* Define a altura reduzida para Density 2 */
+    font-size: 14px;
+  }
+  
+  .mat-list-option .mat-pseudo-checkbox {
+    width: 18px;
+    height: 18px;
+  }
+  
