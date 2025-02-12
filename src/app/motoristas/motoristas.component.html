@@ -1,4 +1,6 @@
-<app-search-bar (searchChange)="applyFilter($event)" placeholder="Digite um nome, cpf ou cnh"></app-search-bar>
+<div class="search-filter-container">
+  <app-search-bar (searchChange)="applySearch($event)" placeholder="Digite um nome, cpf ou cnh"></app-search-bar>
+  <app-filtro-menu (filterChange)="applyFilter($event)" ></app-filtro-menu>
 
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 full-width-table">
 

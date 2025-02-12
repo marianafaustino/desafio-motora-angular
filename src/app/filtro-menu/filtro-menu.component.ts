@@ -10,7 +10,6 @@ export class FiltroMenuComponent {
   @Output() filterChange = new EventEmitter<string>();
 
   filterOptions = [
-    { label: 'Todos', value: '' },
     { label: 'Parado', value: 'idle' },
     { label: 'Dirigindo', value: 'driving' },
     { label: 'Finalizada', value: 'finished' },

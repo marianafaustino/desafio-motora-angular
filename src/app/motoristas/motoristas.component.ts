@@ -13,12 +13,32 @@ export class MotoristasComponent implements OnInit {
   displayedColumns: string[] = ['nome', 'status', 'acao']; 
   dataSource = new MatTableDataSource<any>(); 
 
+  private searchFilter: string = ''; 
+  private statusFilter: string = ''; 
+
   constructor(private motoristasService: MotoristasService) { }
 
   ngOnInit(): void {
     this.motoristasService.getMotorista().subscribe(
       (data) => {
-        this.dataSource.data = data; 
+        this.dataSource = new MatTableDataSource(data);
+
+        
+        this.dataSource.filterPredicate = (data: any, filter: string) => {
+          const filterObj = JSON.parse(filter);
+          const nome = data.name.toLowerCase();
+          const cpf = data.cpf?.toLowerCase() || ''; 
+          const cnh = data.cnh?.toLowerCase() || ''; 
+          const status = data.status.toLowerCase();
+
+          const matchesSearch = nome.includes(filterObj.searchFilter.toLowerCase()) || 
+                                cpf.includes(filterObj.searchFilter.toLowerCase()) || 
+                                cnh.includes(filterObj.searchFilter.toLowerCase());
+
+          const matchesStatus = filterObj.statusFilter ? status.includes(filterObj.statusFilter.toLowerCase()) : true;
+
+          return matchesSearch && matchesStatus;
+        };
       },
       (error) => {
         console.error('Erro ao buscar motorista:', error);
@@ -26,7 +46,18 @@ export class MotoristasComponent implements OnInit {
     );
   }
 
+  applySearch(filterValue: string): void {
+    this.searchFilter = filterValue.trim().toLowerCase();
+    this.applyFilters();
+  }
+
   applyFilter(filterValue: string): void {
-    this.dataSource.filter = filterValue.trim().toLowerCase();
+    this.statusFilter = filterValue;
+    this.applyFilters();
+  }
+
+  private applyFilters(): void {
+    const filterObj = { searchFilter: this.searchFilter, statusFilter: this.statusFilter };
+    this.dataSource.filter = JSON.stringify(filterObj);
   }
 }
