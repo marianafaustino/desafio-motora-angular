@@ -1,0 +1,19 @@
+<form [formGroup]="motoristaForm" (ngSubmit)="submit()">
+    <mat-form-field appearance="outline">
+      <mat-label>Nome</mat-label>
+      <input matInput formControlName="name" required>
+    </mat-form-field>
+  
+    <mat-form-field appearance="outline">
+      <mat-label>CPF</mat-label>
+      <input matInput formControlName="cpf" required>
+    </mat-form-field>
+  
+    <mat-form-field appearance="outline">
+      <mat-label>CNH</mat-label>
+      <input matInput formControlName="cnh" required>
+    </mat-form-field>
+  
+    <button mat-raised-button color="primary" type="submit" [disabled]="motoristaForm.invalid">Salvar</button>
+  </form>
+  
