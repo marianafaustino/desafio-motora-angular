@@ -7,9 +7,14 @@
     
     <div class="container-details" *ngIf="viagemDetalhes">
         <h2>Detalhes da Viagem <span>#{{ viagemDetalhes?.id }}</span></h2>
-        <p>Motorista:{{ driverName || 'Carregando...' }}</p>
+        <p>Motorista: {{ driverName || 'Carregando...' }}</p>
         <p>Veículo: {{ vehiclePlate || 'Carregando...' }}</p>
-        <p>Status:{{ viagemDetalhes?.status }}</p>
+        <p>Status: {{ viagemDetalhes?.status }}</p>
+        
+        <div class="button-container">
+            <button mat-raised-button color="primary" >Editar</button>
+            <button mat-raised-button color="warn">Excluir</button>
+        </div>
     </div>
 </div>
 
