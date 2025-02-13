@@ -14,4 +14,8 @@ export class ViagensService {
       getViagens(): Observable<any> {
         return this.http.get<any>(this.apiUrl);
       }
+
+      addViagem(viagem: any): Observable<any> {
+        return this.http.post<any>(this.apiUrl, viagem);
+      }
 }

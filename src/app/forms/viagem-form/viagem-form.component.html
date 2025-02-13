@@ -1,1 +1,15 @@
-<p>viagem-form works!</p>
+<form [formGroup]="viagemForm" (ngSubmit)="submit()">
+    <mat-form-field appearance="outline">
+      <mat-label>Motorista</mat-label>
+      <input matInput formControlName="motoristaNome" required placeholder="Digite um nome">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+        <mat-label>Veículo</mat-label>
+        <input matInput formControlName="veiculoPlaca" required placeholder="Digite a placa do veículo">
+    </mat-form-field>
+
+    <mat-dialog-actions align="end">
+      <button mat-raised-button color="primary" type="submit" [disabled]="viagemForm.invalid">Salvar</button>
+    </mat-dialog-actions>
+</form>

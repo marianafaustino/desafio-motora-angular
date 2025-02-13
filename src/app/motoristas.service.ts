@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +13,12 @@ export class MotoristasService {
 
   getMotorista(): Observable<any> {
     return this.http.get<any>(this.apiUrl);
+  }
+
+  getMotoristaPorNome(nome: string): Observable<any> {
+    return this.http.get<any[]>(this.apiUrl).pipe(
+      map((motoristas) => motoristas.find(motorista => motorista.name.toLowerCase() === nome.toLowerCase()))
+    );
   }
 
   addMotorista(motorista: any): Observable<any> {

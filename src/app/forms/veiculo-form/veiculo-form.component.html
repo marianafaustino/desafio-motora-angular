@@ -1,5 +1,5 @@
 <form [formGroup]="veiculoForm" (ngSubmit)="submit()">
-    <!-- Select para Tipo -->
+
     <mat-form-field appearance="outline">
       <mat-label>Tipo de Veículo</mat-label>
       <mat-select formControlName="type" required>
@@ -8,16 +8,13 @@
         </mat-option>
       </mat-select>
     </mat-form-field>
-  
-    <!-- Campo Placa -->
+
     <mat-form-field appearance="outline">
       <mat-label>Placa</mat-label>
       <input matInput formControlName="plate" required>
     </mat-form-field>
-  
-    <!-- Botão de Salvar -->
+
     <mat-dialog-actions align="end">
-      <button mat-button (click)="dialogRef.close()">Cancelar</button>
       <button mat-raised-button color="primary" type="submit" [disabled]="veiculoForm.invalid">Salvar</button>
     </mat-dialog-actions>
   </form>
