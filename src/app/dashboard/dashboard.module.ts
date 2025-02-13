@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardComponent } from './dashboard.component';
 import { MapaComponent } from '../mapa/mapa.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -13,8 +14,9 @@ import { MapaComponent } from '../mapa/mapa.component';
   ],
   imports: [
     CommonModule,
-    DashboardRoutingModule
+    DashboardRoutingModule,
+    SharedModule
   ],
-  exports: [DashboardComponent]
+  exports: [DashboardComponent, MapaComponent]
 })
 export class DashboardModule { }

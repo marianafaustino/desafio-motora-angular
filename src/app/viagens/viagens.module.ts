@@ -7,24 +7,28 @@ import { ViagensService } from '../viagens.service';
 import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
 import { SharedModule } from '../shared/shared.module';
+import { ViagemDetalheComponent } from './viagem-detalhe/viagem-detalhe.component';
+import { DashboardModule } from '../dashboard/dashboard.module';
 
 
 @NgModule({
   declarations: [
-    ViagensComponent
+    ViagensComponent,
+    ViagemDetalheComponent
   ],
   imports: [
     CommonModule,
     ViagensRoutingModule,
     MatTableModule,
     MatIconModule,
-    SharedModule
+    SharedModule,
+    DashboardModule
   ],
   providers: [
     ViagensService
   ],
   exports: [
-    ViagensComponent
+    ViagensComponent, ViagemDetalheComponent
   ]
 })
 export class ViagensModule { }

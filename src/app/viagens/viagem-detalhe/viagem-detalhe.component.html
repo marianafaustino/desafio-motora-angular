@@ -1,0 +1,15 @@
+
+
+<div class="viagem-detail">
+    <div class="container-map-detail">
+        <app-mapa *ngIf="vehicleId" [vehicleId]="vehicleId"></app-mapa>
+    </div>
+    
+    <div class="container-details" *ngIf="viagemDetalhes">
+        <h2>Detalhes da Viagem <span>#{{ viagemDetalhes?.id }}</span></h2>
+        <p>Motorista:{{ driverName || 'Carregando...' }}</p>
+        <p>Veículo: {{ vehiclePlate || 'Carregando...' }}</p>
+        <p>Status:{{ viagemDetalhes?.status }}</p>
+    </div>
+</div>
+

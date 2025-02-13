@@ -1,0 +1,32 @@
+*{
+    font-family: 'Lato', sans-serif !important;
+}
+
+.viagem-detail {
+    display: flex;
+    justify-content: space-between; 
+}
+
+.container-map-detail {
+    width: 70%;
+}
+
+.container-details {
+    width: 30%; 
+}
+
+h2{
+    font-size: 30px;
+    font-weight: lighter;
+    color: #646566;
+}
+
+h2 > span{
+    color: #C5C7C8;
+    font-weight: lighter;
+}
+
+p{
+    font-size: 24px;
+    font-weight: 300;
+}
