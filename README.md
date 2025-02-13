@@ -1,3 +1,33 @@
+# Alterações no backend
+## Travels service
+### Método post:
+postTravel(travel: any): any {
+    travel.id = ++this.lastUsedId;
+    travel.driverId = travel.driverId || -1;
+    travel.vehicleId = travel.vehicleId || -1;
+    travel.start = travel.start || new Date();
+    travel.status = travel.status || travel.end ? 'finished' : 'ongoing';
+    travel.end = travel.end || undefined;
+    travel.startingLocation = travel.startingLocation || [0, 0];
+    travel.finalLocation = travel.finalLocation || [0, 0]
+
+    this.travels.push(travel);
+
+    this.travelsGateway.sendCreated(travel);
+    return travel;
+  }
+
+### Exemplo de json para post (http://localhost:3000/travels/5):
+{
+    "startingLocation": [-20.3202, -40.293] ,
+    "finalLocation": [-20.3155, -40.3128],
+    "driverId": 1,
+    "vehicleId": 1,
+    "status": "finished",
+    "start": "2021-01-01T00:00:00.000Z",
+    "end": "2021-01-01T00:00:00.000Z"
+  }
+
 # MeuProjeto
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.6.
