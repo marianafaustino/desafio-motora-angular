@@ -1,10 +1,11 @@
-<h2 mat-dialog-title>{{ data.title }}</h2>
+<div class="titulo" style="display: flex; align-items: center; justify-content: space-between; width: 95%; overflow: hidden;">
+  <h2 mat-dialog-title style="margin: 0;">{{ data.title }}</h2>
+  <button mat-icon-button mat-dialog-close class="close-button">
+    <mat-icon>close</mat-icon>
+  </button>
+</div>
 
-<mat-dialog-content>
+<mat-dialog-content style="overflow: hidden;">
   <p>Adicionando novo {{ data.entity }}</p>
   <ng-container #formContainer></ng-container>
 </mat-dialog-content>
-
-<mat-dialog-actions align="end">
-  <button mat-button >Cancelar</button>
-</mat-dialog-actions>
