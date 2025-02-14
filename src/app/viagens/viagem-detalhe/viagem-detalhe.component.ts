@@ -17,6 +17,8 @@ export class ViagemDetalheComponent implements OnInit {
   driverName?: string;
   startingLocation?: [number, number]; // Local de início da viagem
   finalLocation?: [number, number]; // Local de fim da viagem
+  start?: ''
+  end?: ''
 
   constructor(private route: ActivatedRoute, private http: HttpClient) {}
 
@@ -40,6 +42,8 @@ export class ViagemDetalheComponent implements OnInit {
         this.driverId = dados.driverId;
         this.startingLocation = dados.startingLocation;
         this.finalLocation = dados.finalLocation;
+        this.start = dados.start;
+        this.end = dados.end
 
         if (this.vehicleId) {
           this.getVeiculoDetalhes(this.vehicleId);

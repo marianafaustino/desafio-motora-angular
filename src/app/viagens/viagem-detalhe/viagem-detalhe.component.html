@@ -2,13 +2,15 @@
 
 <div class="viagem-detail">
     <div class="container-map-detail">
-        <app-mapa *ngIf="vehicleId" [vehicleId]="vehicleId"></app-mapa>
+        <app-mapa *ngIf="vehicleId" [vehicleId]="vehicleId" [startingLocation]="startingLocation" [finalLocation]="finalLocation"></app-mapa>
     </div>
     
     <div class="container-details" *ngIf="viagemDetalhes">
         <h2>Detalhes da Viagem <span>#{{ viagemDetalhes?.id }}</span></h2>
         <p>Motorista: {{ driverName || 'Carregando...' }}</p>
         <p>Veículo: {{ vehiclePlate || 'Carregando...' }}</p>
+        <p>Início: {{ start || 'Carregando...' }}</p>
+        <p *ngIf="end">Final: {{ end || 'Carregando...' }}</p>
         <p>Status: {{ viagemDetalhes?.status }}</p>
         
         <div class="button-container">
