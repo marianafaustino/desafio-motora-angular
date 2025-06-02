@@ -76,15 +76,15 @@ export class MapaComponent implements AfterViewInit {
     if (!this.startingLocation || !this.finalLocation) return;
 
     const startIcon = L.divIcon({
-      className: 'custom-icon',
-      html: `<span class="material-icons" style="color: green; font-size: 24px;">place</span>`,
+      className: 'custom-car-icon',
+      html: `<span class="material-icons" style="color: #F24625; font-size: 24px;">directions_car</span>`,
       iconSize: [24, 24],
       iconAnchor: [12, 12]
     });
 
     const endIcon = L.divIcon({
-      className: 'custom-icon',
-      html: `<span class="material-icons" style="color: red; font-size: 24px;">place</span>`,
+      className: 'custom-car-icon',
+      html: `<span class="material-icons" style="color: #F24625; font-size: 24px;">directions_car</span>`,
       iconSize: [24, 24],
       iconAnchor: [12, 12]
     });
@@ -96,7 +96,7 @@ export class MapaComponent implements AfterViewInit {
       .bindPopup("Fim da Viagem");
 
     const routeLine = L.polyline([this.startingLocation, this.finalLocation], {
-      color: 'blue',
+      color: '#F24625',
       weight: 4
     }).addTo(this.map);
 

@@ -30,12 +30,12 @@
   </button>
 </mat-menu>
 
-<div class="content-container">
+<div class="content-container" >
   <router-outlet></router-outlet>
 </div>
 
-<mat-divider class="custom-divider"></mat-divider>
-<div class="add-button-container">
+<mat-divider class="custom-divider" *ngIf="exibirBotoes"></mat-divider>
+<div class="add-button-container" *ngIf="exibirBotoes">
   <button mat-fab color="primary" (click)="openDialog()" class="add-button">
     <mat-icon>add</mat-icon>
   </button>
