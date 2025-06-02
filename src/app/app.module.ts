@@ -22,6 +22,7 @@ import { ViagemFormComponent } from './forms/viagem-form/viagem-form.component';
 import { VeiculoFormComponent } from './forms/veiculo-form/veiculo-form.component';
 import { MatSelectModule } from '@angular/material/select';
 import { MatOptionModule } from '@angular/material/core';
+import { GraficosModule } from './graficos/graficos.module';
 
 @NgModule({
   declarations: [AppComponent, NovoItemDialogComponent, MotoristaFormComponent, ViagemFormComponent, VeiculoFormComponent],
@@ -36,6 +37,7 @@ import { MatOptionModule } from '@angular/material/core';
     MotoristasModule,
     VeiculosModule,
     ViagensModule,
+    GraficosModule,
     SharedModule,
     MatFormFieldModule,
     MatInputModule,

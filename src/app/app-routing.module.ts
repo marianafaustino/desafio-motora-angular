@@ -8,6 +8,7 @@ const routes: Routes = [
   { path: 'motoristas', loadChildren: () => import('./motoristas/motoristas.module').then(m => m.MotoristasModule) },
   { path: 'veiculos', loadChildren: () => import('./veiculos/veiculos.module').then(m => m.VeiculosModule) },
   { path: 'dashboard', loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule) },
+  { path: 'graficos', loadChildren: () => import('./graficos/graficos.module').then(m => m.GraficosModule) },
   { path: '**', redirectTo: '' }
 ];
 
