@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { GraficosComponent } from './graficos.component';
+import { GraficosRoutingModule } from './graficos.routing.module';
 
 
 
@@ -9,7 +10,8 @@ import { GraficosComponent } from './graficos.component';
     GraficosComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    GraficosRoutingModule
   ],
   exports: [
     GraficosComponent
