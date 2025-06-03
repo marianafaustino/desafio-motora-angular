@@ -4,6 +4,10 @@ import { GraficosComponent } from './graficos.component';
 import { GraficosRoutingModule } from './graficos.routing.module';
 import { RadarEventosComponent } from './radar-eventos/radar-eventos.component';
 import { BarraEventosComponent } from './barra-eventos/barra-eventos.component';
+import { LinhaPenalidadeComponent } from './linha-penalidade/linha-penalidade.component';
+import { ScoreGraficoComponent } from './score-grafico/score-grafico.component';
+import { RankingMotoristaComponent } from './ranking-motorista/ranking-motorista.component';
+import { ListaEventosGraficoComponent } from './lista-eventos-grafico/lista-eventos-grafico.component';
 
 
 
@@ -11,7 +15,11 @@ import { BarraEventosComponent } from './barra-eventos/barra-eventos.component';
   declarations: [
     GraficosComponent,
     RadarEventosComponent,
-    BarraEventosComponent
+    BarraEventosComponent,
+    LinhaPenalidadeComponent,
+    ScoreGraficoComponent,
+    RankingMotoristaComponent,
+    ListaEventosGraficoComponent
   ],
   imports: [
     CommonModule,
@@ -19,7 +27,8 @@ import { BarraEventosComponent } from './barra-eventos/barra-eventos.component';
   ],
   exports: [
     GraficosComponent,
-    BarraEventosComponent
+    BarraEventosComponent,
+    LinhaPenalidadeComponent
   ]
 })
 export class GraficosModule { }

@@ -1,0 +1,20 @@
+<div class="events-container">
+  <table>
+    <thead>
+      <tr>
+        <th>Motorista</th>
+        <th>Data do evento</th>
+        <th>Evento</th>
+        <th>Velocidade</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let event of events">
+        <td>{{ event.driverName }}</td>
+        <td>{{ event.eventDate }}</td>
+        <td>{{ event.eventType }}</td>
+        <td>{{ event.speed | number:'1.2-2' }} km/h</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

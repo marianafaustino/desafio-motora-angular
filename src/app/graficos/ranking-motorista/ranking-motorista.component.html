@@ -1,0 +1,18 @@
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Score</th>
+        <th>km total</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let person of people">
+        <td>{{ person.name }}</td>
+        <td>{{ person.score | number:'1.1-1' }}</td>
+        <td>{{ person.kmTotal | number:'1.2-2' }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -16,6 +16,11 @@ export class RadarEventosComponent implements OnInit {
       options: {
         responsive: true,
         maintainAspectRatio: false,
+        plugins: {
+          legend: {
+            display: false
+          },
+        }
       },
       data: {
         labels: [
